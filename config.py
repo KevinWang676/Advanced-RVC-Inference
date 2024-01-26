@@ -10,23 +10,7 @@ class Config:
         self.n_cpu = 0
         self.gpu_name = None
         self.gpu_mem = None
-        (
-            self.colab,
-            self.api,
-        ) = self.arg_parse()
         self.x_pad, self.x_query, self.x_center, self.x_max = self.device_config()
-
-    @staticmethod
-    def arg_parse() -> tuple:
-        parser = argparse.ArgumentParser()
-        parser.add_argument("--colab", action="store_true", help="Launch in colab")
-        parser.add_argument("--api", action="store_true", help="Launch with api")
-        cmd_opts = parser.parse_args()
-
-        return (
-            cmd_opts.colab,
-            cmd_opts.api
-        )
 
     # has_mps is only available in nightly pytorch (for now) and MasOS 12.3+.
     # check `getattr` and try it for compatibility
