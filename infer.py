@@ -939,4 +939,4 @@ with gr.Blocks() as app:
             "# <center> Settings\n"+
             "#### <center> Work in progress"
         )
-    app.queue(concurrency_count=1, max_size=50, api_open=config.api).launch(share=config.colab)
+    app.queue(concurrency_count=1, max_size=50).launch(share=True)
